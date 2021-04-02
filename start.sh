@@ -1,0 +1,1 @@
+./build.sh && ./main.out "Woohooo 😍 ✌️"

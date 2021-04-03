@@ -3,6 +3,7 @@
 #define PY_SSIZE_T_CLEAN
 
 #include <Python.h>
+#include <string>
 
 int main(int argc, char *argv[]) {
     (void)argc; // hack to suppress unused warning
@@ -20,7 +21,14 @@ int main(int argc, char *argv[]) {
 
     pArgs2 = PyTuple_New(2);
     PyTuple_SET_ITEM(pArgs2, 0, PyLong_FromLong(0));
-    PyTuple_SET_ITEM(pArgs2, 1, PyUnicode_DecodeFSDefault("/home/maxim/vader-sentiment-native-gyp"));
+
+    char self_result[PATH_MAX];
+    ssize_t count = readlink("/proc/self/exe", self_result, PATH_MAX);
+
+    std::string str = std::string(self_result, (count > 0) ? count : 0);
+    str[strlen(&str[0])-8] = '\0'; // hack to remove "main.out" from string (https://stackoverflow.com/a/14544944/4536543)
+
+    PyTuple_SET_ITEM(pArgs2, 1, PyUnicode_DecodeFSDefault(&str[0]));
 
     PyObject_CallObject(PyObject_GetAttrString(PyObject_GetAttrString(pModule2, "path"), "insert"), pArgs2);
 

@@ -10,4 +10,4 @@ Updated replacement for [vader-sentiment](https://www.npmjs.com/package/vader-se
 
 1. Install dependencies. On Ubuntu, run `./deps.sh`
 1. Build binary: `./build.sh`
-1. Run it: `./main.out "Woohooo 😍 ✌️"`
+1. Run it: `./vader_sentiment_cpython "Woohooo 😍 ✌️"`

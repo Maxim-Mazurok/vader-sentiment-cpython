@@ -1,1 +1,1 @@
-./build.sh && ./main.out "Woohooo 😍 ✌️"
+./build.sh && ./vader_sentiment_cpython "Woohooo 😍 ✌️"

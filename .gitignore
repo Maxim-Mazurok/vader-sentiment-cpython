@@ -1,2 +1,6 @@
 vaderSentiment-master
-main.out
+Makefile
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles
+vader_sentiment_cpython

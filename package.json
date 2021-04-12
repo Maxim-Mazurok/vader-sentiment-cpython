@@ -1,10 +1,11 @@
 {
-  "name": "vader-sentiment-native-gyp",
-  "version": "1.0.0",
+  "name": "vader-sentiment-cpython",
+  "version": "0.0.1",
   "scripts": {
     "start": "bash ./start.sh"
   },
-  "dependencies": {
-    "python-shell": "^1.0.8"
+  "dependencies": {},
+  "devDependencies": {
+    "node-gyp": "^8.0.0"
   }
 }

@@ -8,3 +8,5 @@ rm -rf vaderSentiment-master
 unzip master.zip
 
 rm -f master.zip
+
+mv vaderSentiment-master $(dirname "$(which node)")/ # temp workaround

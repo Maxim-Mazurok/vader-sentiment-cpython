@@ -1,3 +1,6 @@
+#include <node.h>
+#include <v8.h>
+
 // TODO: handle errors, add Py_DECREFs
 
 #include <Python.h>
@@ -8,9 +11,7 @@ const char* executableFolder() {
     return (new std::string(boost::dll::program_location().parent_path().string()))->c_str();
 }
 
-int main(int argc, char *argv[]) {
-    (void)argc; // hack to suppress unused warning
-
+double MainFunc(const char *arg) {
     PyObject *pName, *importlib, *importlib__import_module, *vaderSentiment, *pFunc;
     PyObject *pArgs, *pArgs2, *pModule2, *importlib__import_module__args, *analyser, *result;
 
@@ -41,11 +42,12 @@ int main(int argc, char *argv[]) {
         if (pFunc && PyCallable_Check(pFunc)) {
             pArgs = PyTuple_New(0);
             analyser = PyObject_CallObject(pFunc, pArgs);
-            result = PyObject_CallMethod(analyser, "polarity_scores", "(s)", argv[1]);
+            result = PyObject_CallMethod(analyser, "polarity_scores", "(s)", arg);
             // Py_DECREF(pArgs);
             if (result != NULL) {
                 printf("Result of call: %f\n", PyFloat_AsDouble(PyDict_GetItemString(result, "compound")));
                 // Py_DECREF(result);
+                return PyFloat_AsDouble(PyDict_GetItemString(result, "compound"));
             } else {
                 // Py_DECREF(pFunc);
                 // Py_DECREF(vaderSentiment);
@@ -70,3 +72,16 @@ int main(int argc, char *argv[]) {
     }
     return 0;
 }
+
+void Method(const v8::FunctionCallbackInfo<v8::Value>& args) {
+  v8::Isolate* isolate = args.GetIsolate();
+    const char* data = "Woohooo 😍 ✌️";
+  args.GetReturnValue().Set(v8::String::NewFromUtf8(
+        isolate, std::to_string(MainFunc(data)).c_str()).ToLocalChecked());
+}
+
+void init(v8::Local<v8::Object> exports, v8::Local<v8::Object> module) {
+  NODE_SET_METHOD(module, "exports", Method);
+}
+
+NODE_MODULE(NODE_GYP_MODULE_NAME, init);

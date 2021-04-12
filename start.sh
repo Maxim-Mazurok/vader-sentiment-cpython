@@ -1,1 +1,1 @@
-./build.sh && ./vader_sentiment_cpython "Woohooo 😍 ✌️"
+node-gyp configure && node-gyp build && node test.js

@@ -9,5 +9,5 @@ Updated replacement for [vader-sentiment](https://www.npmjs.com/package/vader-se
 ## Getting Started
 
 1. Install dependencies. On Ubuntu, run `./deps.sh`
-1. Build binary: `./build.sh`
-1. Run it: `./vader_sentiment_cpython "Woohooo 😍 ✌️"`
+1. Build binary: `node-gyp configure && node-gyp build` (might need to update hardcoded libs)
+1. Run it: `npm start` (uses hardcoded string for now, in c++ code)

@@ -2,10 +2,16 @@
   "name": "vader-sentiment-cpython",
   "version": "0.0.1",
   "scripts": {
-    "start": "bash ./start.sh"
+    "install": "node-gyp-build",
+    "start": "bash ./start.sh",
+    "prebuild": "prebuildify --napi --strip"
   },
-  "dependencies": {},
+  "dependencies": {
+    "node-addon-api": "^3.1.0",
+    "node-gyp-build": "^4.2.3"
+  },
   "devDependencies": {
-    "node-gyp": "^8.0.0"
+    "node-gyp": "^8.0.0",
+    "prebuildify": "^4.1.2"
   }
 }

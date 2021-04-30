@@ -18,7 +18,7 @@
             'msvs_settings': {
                 'VCCLCompilerTool': {'ExceptionHandling': 1},
             },
-            "libraries": ["/tmp/cpython/libpython3.9.a", "/tmp/boost_1_61_0/stage/lib/libboost_filesystem.a", "/tmp/boost_1_61_0/stage/lib/libboost_system.a"]
+            "libraries": ["/tmp/cpython/libpython3.8.a", "/tmp/boost_1_61_0/stage/lib/libboost_filesystem.a", "/tmp/boost_1_61_0/stage/lib/libboost_system.a"]
         }
     ],
     'conditions': [

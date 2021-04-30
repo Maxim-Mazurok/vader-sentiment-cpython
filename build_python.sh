@@ -19,6 +19,6 @@ fi
 # all
 ./configure --disable-shared
 
-make -j
+make # add -j if not heroku
 
 # ./libpython3.8.a is ready

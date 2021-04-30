@@ -2,7 +2,7 @@
   "name": "vader-sentiment-cpython",
   "version": "0.0.1",
   "scripts": {
-    "install": "node-gyp-build",
+    "install": "./build_boost.sh && ./build_python.sh && node-gyp-build",
     "start": "bash ./start.sh",
     "test": "npm run prebuild && node test.js",
     "prebuild": "prebuildify --napi --strip"

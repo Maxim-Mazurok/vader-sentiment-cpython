@@ -19,11 +19,7 @@ export PKG_CONFIG_PATH="$(brew --prefix openssl)/lib/pkgconfig"
 export CPPFLAGS="-I$(brew --prefix readline)/include"
 export LDFLAGS="-L$(brew --prefix readline)/lib"
 
-# Ubuntu
-./configure LDFLAGS="-static" --disable-shared
-make LDFLAGS="-static" LINKFORSHARED=" " -j
-
-# Mac
+# all
 ./configure --disable-shared
 make -j
 

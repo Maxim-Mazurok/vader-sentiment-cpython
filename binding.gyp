@@ -3,7 +3,9 @@
         {
             'target_name': 'binding',
             'sources': ['binding.cc'],
-            'include_dirs': ["/usr/include/python3.8", "<!(node -p \"require('node-addon-api').include_dir\")"],
+            'include_dirs': [
+                "/usr/local/opt/python/Frameworks/Python.framework/Versions/Current/include/python3.9", # for Mac
+                "/usr/include/python3.8", "<!(node -p \"require('node-addon-api').include_dir\")"],
             'cflags!': ['-fno-exceptions'],
             'cflags_cc!': ['-fno-exceptions'],
             "cflags": ["-fPIC", "-DBOOST_ALL_NO_LIB", "-static"],
@@ -11,12 +13,12 @@
             'xcode_settings': {
                 'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
                 'CLANG_CXX_LIBRARY': 'libc++',
-                'MACOSX_DEPLOYMENT_TARGET': '10.7',
+                'MACOSX_DEPLOYMENT_TARGET': '10.15',
             },
             'msvs_settings': {
                 'VCCLCompilerTool': {'ExceptionHandling': 1},
             },
-            "libraries": ["/tmp/cpython-3.8.5/libpython3.8.a", "/tmp/boost_1_61_0/stage/lib/libboost_filesystem.a", "/tmp/boost_1_61_0/stage/lib/libboost_system.a"]
+            "libraries": ["/tmp/cpython/libpython3.9.a", "/tmp/boost_1_61_0/stage/lib/libboost_filesystem.a", "/tmp/boost_1_61_0/stage/lib/libboost_system.a"]
         }
     ],
     'conditions': [

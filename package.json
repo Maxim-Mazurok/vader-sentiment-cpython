@@ -4,7 +4,9 @@
   "scripts": {
     "install": "node-gyp-build",
     "start": "bash ./start.sh",
-    "test": "npm run prebuild && node test.js",
+    "test": "npm run prebuild && npm run run-test",
+    "run-test": "node test.js",
+    "run-test-mac": "PYTHONHOME=/usr/local/opt/python/Frameworks/Python.framework/Versions/Current node test.js",
     "prebuild": "prebuildify --napi --strip"
   },
   "dependencies": {

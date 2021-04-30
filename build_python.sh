@@ -1,5 +1,5 @@
 # only on heroku for now
-if [[ -z "${HEROKU_ENV}" ]]; then
+if [[ "${HEROKU_ENV}" ]]; then
 
     # build python
 

@@ -1,5 +1,5 @@
 # only on heroku for now
-if [[ -z "${HEROKU_ENV}" ]]; then
+if [[ "${HEROKU_ENV}" ]]; then
 
     cd /tmp
     wget https://sourceforge.net/projects/boost/files/boost/1.61.0/boost_1_61_0.tar.bz2

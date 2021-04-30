@@ -3,7 +3,11 @@ if [[ "${HEROKU_ENV}" ]]; then
 
     # build python
 
+    cd /tmp
+
     git clone --depth 1 --branch v3.8.5 https://github.com/python/cpython
+
+    cd cpython
 
     echo "*static*
     math mathmodule.c _math.c" > Modules/Setup.local

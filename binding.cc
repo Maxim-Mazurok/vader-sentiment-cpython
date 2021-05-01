@@ -44,7 +44,7 @@ double MainFunc(const char *arg) {
             result = PyObject_CallMethod(analyser, "polarity_scores", "(s)", arg);
             // Py_DECREF(pArgs);
             if (result != NULL) {
-                printf("Result of call: %f\n", PyFloat_AsDouble(PyDict_GetItemString(result, "compound")));
+                // printf("Result of call: %f\n", PyFloat_AsDouble(PyDict_GetItemString(result, "compound")));
                 // Py_DECREF(result);
                 return PyFloat_AsDouble(PyDict_GetItemString(result, "compound"));
             } else {

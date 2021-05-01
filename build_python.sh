@@ -5,6 +5,8 @@ if [[ "${HEROKU_ENV}" ]]; then
 
     cd /tmp
 
+    rm -rf /tmp/cpython
+
     git clone --depth 1 --branch v3.8.5 https://github.com/python/cpython
 
     cd cpython

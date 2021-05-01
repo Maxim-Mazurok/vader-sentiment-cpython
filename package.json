@@ -5,7 +5,8 @@
     "install": "bash ./build_boost.sh && bash ./build_python.sh && bash ./node-gyp-build.sh",
     "start": "bash ./install_vader.sh && bash ./start.sh",
     "test": "npm run prebuild && node test.js",
-    "prebuild": "prebuildify --napi --strip"
+    "prebuild": "prebuildify --napi --strip",
+    "node-gyp-build": "node-gyp-build"
   },
   "dependencies": {
     "node-addon-api": "^3.1.0",

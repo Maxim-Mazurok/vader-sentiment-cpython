@@ -22,13 +22,15 @@ if [[ "${HEROKU_ENV}" ]]; then
         brew install git openssl readline
         export PKG_CONFIG_PATH="$(brew --prefix openssl)/lib/pkgconfig"
         export CPPFLAGS="-I$(brew --prefix readline)/include"
-        export LDFLAGS="-L$(brew --prefix readline)/lib" 
+        export LDFLAGS="-L$(brew --prefix readline)/lib"
+    elif [[ "$(uname)" == "Linux" ]]; then
+        export CFLAGS="-fPIC"
+        export LDFLAGS="-static"
+        export LINKFORSHARED=" "
     fi
 
-    # all
     ./configure --disable-shared
-
-    make # add -j if not heroku
+    make # -j # add -j if not heroku
 
     # ./libpython3.8.a is ready
 

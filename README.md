@@ -16,9 +16,14 @@ Updated replacement for [vader-sentiment](https://www.npmjs.com/package/vader-se
 
 ## Getting Started for end user
 
-Note: target machine should have same glibc as dev machine
+Note: target machine should have same python (and glibc?) version, as dev machine
 
-1. Follow [dev guide](#getting-started-for-dev)
-1. Copy [`prebuild`](./prebuild) folder and [`test.js`](./test.js) to your target machine
-1. Run [`install_vader.sh`](./install_vader.sh) in your target machine
-1. Run it: `node test.js "your awesome text goes here"`
+Note: currently is was tested on Ubuntu 20, and on Heroku (with Ubuntu 20). Check `mac` branch for Mac OS
+
+Note: if you'd like to use it on another linux distro, at least install Python 3.8.5 and make sure that `python3` points to it
+
+Note: requires Python 3.8.5 (installed on Ubuntu 20 by default)
+
+1. Run `npm install Maxim-Mazurok/vader-sentiment-cpython`
+2. Add [`install_vader.sh`](./install_vader.sh) script to your project, and run it before using module.
+   You can include it in `start` script, like so: `"start": "bash ./install_vader.sh && node start.js",`

@@ -2,11 +2,12 @@
   "name": "vader-sentiment-cpython",
   "version": "0.0.1",
   "scripts": {
-    "install": "bash ./build_boost.sh && bash ./build_python.sh && bash ./node-gyp-build.sh && bash ./install_vader.sh",
+    "install": "bash ./node-gyp-build.sh",
     "start": "bash ./start.sh",
     "test": "npm run prebuild && node test.js",
     "prebuild": "prebuildify --napi --strip",
-    "node-gyp-build": "node-gyp-build"
+    "node-gyp-build": "node-gyp-build",
+    "node-gyp-build-test": "node-gyp-build-test"
   },
   "dependencies": {
     "node-addon-api": "^3.1.0",

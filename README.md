@@ -26,4 +26,4 @@ Note: requires Python 3.8.5 (installed on Ubuntu 20 by default)
 
 1. Run `npm install Maxim-Mazurok/vader-sentiment-cpython`
 2. Add [`install_vader.sh`](./install_vader.sh) script to your project, and run it before using module.
-   You can include it in `start` script, like so: `"start": "bash ./install_vader.sh && node start.js",`
+   You can include it in `start` script, like so: `"start": "bash ./node_modules/vader-sentiment-cpython/install_vader.sh && node start.js",`

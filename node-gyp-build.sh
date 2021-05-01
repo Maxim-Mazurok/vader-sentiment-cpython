@@ -1,6 +1,6 @@
 # only on heroku for now
 if [[ "${HEROKU_ENV}" ]]; then
 
-    node-gyp-build
+    ./node_modules/.bin/node-gyp-build
 
 fi

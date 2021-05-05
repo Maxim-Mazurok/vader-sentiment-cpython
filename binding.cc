@@ -14,6 +14,17 @@ double MainFunc(const char *arg) {
     PyObject *pArgs, *pArgs2, *pModule2, *importlib__import_module__args, *analyser, *result;
 
     Py_Initialize();
+
+    printf("Py_GetVersion() %s\n", Py_GetVersion());
+    printf("Py_GetPath() %S\n", Py_GetPath());
+    printf("Py_GetProgramFullPath() %S\n", Py_GetProgramFullPath());
+    printf("Py_GetExecPrefix() %S\n", Py_GetExecPrefix());
+    printf("Py_GetPrefix() %S\n", Py_GetPrefix());
+    printf("Py_GetProgramName() %S\n", Py_GetProgramName());
+    printf("Py_GetCompiler() %s\n", Py_GetCompiler());
+    printf("Py_GetBuildInfo() %s\n", Py_GetBuildInfo());
+    printf("Py_GetPythonHome() %S\n", Py_GetPythonHome());
+
     pName = PyUnicode_DecodeFSDefault("importlib");
 
     importlib = PyImport_Import(pName);

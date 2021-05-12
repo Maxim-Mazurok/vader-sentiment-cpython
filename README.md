@@ -48,3 +48,8 @@ Disclaimer: this is my (very limited) understanding.
 
 So... Looks like I have to [use python's main.c](https://github.com/pyinstaller/pyinstaller/pull/5801#issuecomment-833797956) in order to create portable python interpreter that I can ship with this package.
 But instead of running in console mode (and requiring to be ran using `spawn child process`), it'll be possible to embed NAPI into it, so it'll be a NodeJS package.
+
+The most recent attempt to create such a portable python lives in [my cpython fork](https://github.com/Maxim-Mazurok/cpython/tree/vader).
+Currently it will run vader if you put `vaderSentiment-master` folder in the `cpython` root folder.
+
+`PyRun_SimpleString` is the key function under the hood.

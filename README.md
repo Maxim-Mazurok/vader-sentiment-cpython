@@ -46,5 +46,5 @@ Disclaimer: this is my (very limited) understanding.
 - Python "starts" in [`pyi_pylib_start_python` function](https://github.com/pyinstaller/pyinstaller/blob/ed4bf7406bae5a6c070079b6c4b3160e740a546f/bootloader/src/pyi_pythonlib.c#L385)
 - [pyinstaller bootloader's entrypoint](https://github.com/pyinstaller/pyinstaller/blob/ed4bf7406bae5a6c070079b6c4b3160e740a546f/bootloader/src/main.c#L89) is based on an [Python 2](https://github.com/python/cpython/blob/8d21aa21f2cbc6d50aab3f420bb23be1d081dac4/Modules/python.c) version of [Python interpreter main program](https://github.com/python/cpython/blob/96d5c7038b06e93d20822d28ed42a2183f876857/Modules/main.c)
 
-So... Looks like I have to reuse pyinstaller's bootloader in order to create portable python interpreter that I can ship with this package.
+So... Looks like I have to [use python's main.c](https://github.com/pyinstaller/pyinstaller/pull/5801#issuecomment-833797956) in order to create portable python interpreter that I can ship with this package.
 But instead of running in console mode (and requiring to be ran using `spawn child process`), it'll be possible to embed NAPI into it, so it'll be a NodeJS package.

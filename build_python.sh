@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # build python
 
 cd /tmp

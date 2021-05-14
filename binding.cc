@@ -86,7 +86,7 @@ Napi::Value Method(const Napi::CallbackInfo &info) {
         return env.Null();
     }
 
-    return Napi::String::New(env, std::to_string(MainFunc(info[0].As<Napi::String>().Utf8Value().c_str())).c_str());
+    return Napi::Number::New(env, MainFunc(info[0].As<Napi::String>().Utf8Value().c_str()));
 }
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) {

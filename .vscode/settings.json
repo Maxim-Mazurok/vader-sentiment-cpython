@@ -1,8 +1,6 @@
 {
-    "cSpell.words": [
-        "cpython",
-        "gypfile"
-    ],
-    "clion-formatter.executable": "/opt/clion-2021.1.1/bin/clion.sh",
-    "clion-formatter.settings": "/home/maxim/vader-sentiment-cpython/codestyle-clion.xml"
+  "cSpell.words": ["cpython", "gypfile"],
+  "clion-formatter.executable": "/opt/clion-2021.1.1/bin/clion.sh",
+  "clion-formatter.settings": "/home/maxim/vader-sentiment-cpython/codestyle-clion.xml",
+  "markdown.extension.orderedList.marker": "one" // prefer auto-numbering to manual
 }

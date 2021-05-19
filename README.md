@@ -49,7 +49,25 @@ Disclaimer: this is my (very limited) understanding.
 So... Looks like I have to [use python's main.c](https://github.com/pyinstaller/pyinstaller/pull/5801#issuecomment-833797956) in order to create portable python interpreter that I can ship with this package.
 But instead of running in console mode (and requiring to be ran using `spawn child process`), it'll be possible to embed NAPI into it, so it'll be a NodeJS package.
 
-The most recent attempt to create such a portable python lives in [my cpython fork](https://github.com/Maxim-Mazurok/cpython/tree/vader).
+The most recent attempt to create such a portable python lives in my cpython fork's [vader-branch]
 Currently it will run vader if you put `vaderSentiment-master` folder in the `cpython` root folder.
 
 `PyRun_SimpleString` is the key function under the hood.
+
+### What to do?
+
+There are two options:
+
+1. Migrate [vader branch] of cpython to gyp building system
+
+   - Copy all cpython code into this project (or clone and patch)
+   - Either separate `node-gyp configure` step from the build step (in the `prebuildify`, somehow), so that we can change/merge cpython's Makefile and NodeJS's native module Makefile
+   - Or migrate cpython's Makefile to binding.gyp
+
+1. Move cpython code into this project
+
+   Essentially, copy only the required bits of code from cpython to this project. Probably will require copying a whole lot and diving very deep into cpython. Also, will probably require the same migration of cpython's Makefile to binding.gyp.
+
+So, I think that I should try to migrate cpython's Makefile to binding.gyp. Then include and call cpython's main function in binding.cc?
+
+[vader branch]: https://github.com/Maxim-Mazurok/cpython/tree/vader

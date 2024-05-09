@@ -8,6 +8,7 @@ Updated replacement for [vader-sentiment](https://www.npmjs.com/package/vader-se
 
 ## Getting Started for dev
 
+1. Run `nvm i`
 1. Run `npm ci`
 1. Install dependencies. On Ubuntu, run [`./deps.sh`](./deps.sh)
 1. Build python and boost statically (see [`build_boost.sh`](./build_boost.sh) and [`build_python.sh`](./build_python.sh))

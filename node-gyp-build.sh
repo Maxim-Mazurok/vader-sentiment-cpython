@@ -9,7 +9,7 @@ elif [ "$(python3 -V)" == "Python 3.8.5" ]; then
     echo "no prebuild, rebuilding..."
     bash ./build_boost.sh && bash ./build_python.sh
 else
-    echo "no prebuild, no Python 3.8.5, can't rebuild... make sure that `python3 -V` returns `Python 3.8.5`"
+    echo "no prebuild, no Python 3.8.5, can't rebuild... make sure that `python3 -V` returns 'Python 3.8.5'"
     exit 1
 fi
 

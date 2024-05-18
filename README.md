@@ -6,6 +6,8 @@ Updated replacement for [vader-sentiment](https://www.npmjs.com/package/vader-se
 
 [vader-sentiment](https://www.npmjs.com/package/vader-sentiment) is outdated and doesn't support emoji - vital element of comments nowadays.
 
+Also, spawning python process from nodejs is slow. This module can analyze ~60,000 strings per second by re-using the same python instance, and doesn't leak memory.
+
 ## Getting Started for dev
 
 1. Run `nvm i`

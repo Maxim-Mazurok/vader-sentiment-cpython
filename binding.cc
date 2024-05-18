@@ -13,8 +13,9 @@ double MainFunc(const char *arg) {
     PyObject *vaderSentiment = NULL, *pFunc = NULL, *pArgs = NULL, *pArgs2 = NULL;
     PyObject *pModule2 = NULL, *importlib__import_module__args = NULL, *analyser = NULL;
     PyObject *result = NULL;
+    PyObject *pModule2_path = NULL, *pModule2_path_insert = NULL;
 
-    double score = 0.0;
+    double score = 1.0;
 
     Py_Initialize();
 
@@ -34,7 +35,13 @@ double MainFunc(const char *arg) {
     PyTuple_SET_ITEM(pArgs2, 0, PyLong_FromLong(0));
     PyTuple_SET_ITEM(pArgs2, 1, PyUnicode_DecodeFSDefault(executableFolder()));
 
-    if (PyObject_CallObject(PyObject_GetAttrString(PyObject_GetAttrString(pModule2, "path"), "insert"), pArgs2) == NULL) {
+    pModule2_path = PyObject_GetAttrString(pModule2, "path");
+    if (!pModule2_path) goto error;
+
+    pModule2_path_insert = PyObject_GetAttrString(pModule2_path, "insert");
+    if (!pModule2_path_insert) goto error;
+
+    if (PyObject_CallObject(pModule2_path_insert, pArgs2) == NULL) {
         goto error;
     }
 
@@ -80,6 +87,8 @@ double MainFunc(const char *arg) {
     Py_DECREF(importlib__import_module);
     Py_DECREF(importlib);
     Py_DECREF(pModule2);
+    Py_DECREF(pModule2_path);
+    Py_DECREF(pModule2_path_insert);
     Py_DECREF(pArgs2);
 
     if (Py_FinalizeEx() < 0) {
@@ -97,6 +106,8 @@ error:
     Py_XDECREF(importlib__import_module);
     Py_XDECREF(importlib);
     Py_XDECREF(pModule2);
+    Py_XDECREF(pModule2_path);
+    Py_XDECREF(pModule2_path_insert);
     Py_XDECREF(pArgs2);
 
     if (Py_FinalizeEx() < 0) {
